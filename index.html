@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inicio de Sesión - Control de Llamadas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Login y Registro -->
+  <div class="container" id="authContainer">
+    <h1>🔐 Iniciar Sesión</h1>
+    <form id="loginForm">
+      <input type="text" id="loginName" placeholder="Nombre" required />
+      <input type="password" id="loginPassword" placeholder="Contraseña" required />
+      <button type="submit">Entrar</button>
+    </form>
+
+    <p>
+      ¿No tienes cuenta?
+      <a href="#" onclick="toggleForm(); return false;">Regístrate</a>
+    </p>
+
+    <div id="registerSection" style="display: none;">
+      <h2>📝 Registro</h2>
+      <form id="registerForm">
+        <input type="text" id="regName" placeholder="Nombre" required />
+        <input type="password" id="regPassword" placeholder="Contraseña" required />
+        <input type="text" id="regAddress" placeholder="Dirección" required />
+        <input type="text" id="regPhone" placeholder="Teléfono" required />
+        <button type="submit">Registrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Menú principal -->
+  <div class="container" id="menuApp" style="display: none;">
+    <p id="userGreeting" class="user-greeting"></p>
+    <button id="logoutBtn">🚪 Cerrar sesión</button>
+
+    <nav class="menu">
+      <button id="menuCalls" class="menu-button active">📞 Control de llamadas</button>
+      <button id="menuReports" class="menu-button">📊 Reportes</button>
+
+    </nav>
+  </div>
+
+  <!-- Módulo Control de Llamadas -->
+  <div class="container" id="callApp" style="display: none;">
+    <form id="callForm">
+      <input type="text" id="name" placeholder="¿A quién llamaste?" required />
+      <input type="date" id="date" required />
+      <textarea id="notes" placeholder="Notas de la llamada..." rows="3"></textarea>
+      <button type="submit">Agregar Llamada</button>
+    </form>
+
+    <button id="downloadTxt">📥 Descargar TXT</button>
+    <button id="downloadExcel">📥 Descargar Excel</button>
+<button id="clearHistory" style="background-color: #d32f2f;">🗑️ Eliminar historial</button>
+
+    <h2>📋 Historial</h2>
+    <ul id="callList"></ul>
+  </div>
+
+  <!-- Módulo Reportes -->
+  <div class="container" id="reportsApp" style="display: none;">
+    <h2>📅 Filtrar llamadas por fecha</h2>
+    <form id="filterForm">
+      <input type="date" id="filterDate" required />
+      <button type="submit">Filtrar</button>
+      <button type="button" id="clearFilter">Limpiar filtro</button>
+    </form>
+    <h3>📋 Llamadas filtradas</h3>
+    <ul id="filteredCallsList"></ul>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
